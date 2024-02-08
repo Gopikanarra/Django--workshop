@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>student form</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/regi.css' %}">
+</head>
+<body>
+	<center>
+		<h2>Registration Here</h2>
+		<form method="post">
+			{% csrf_token %}
+			<br/>
+			<label>Student Name</label>
+			<input type="text" name="name">
+			<br/>
+			<br>
+
+			<label>Student Roll no</label>
+			<input type="text" name="roll">
+			<br/>
+			<br>
+
+			<label>Student branch</label>
+			<select name="br">
+				<option value=" ">--select---</option>
+				<option value="inf">INF</option>
+				<option value="cse">CSE</option>
+				<option value="ece">ECE</option>
+				<option value="eee">EEE</option>
+				<option value="mech">MECH</option>
+				<option value="civil">CIVIL</option>
+				<option value="cic">CIC</option>
+				<option value="csm">CSM</option>
+				<option value="cso">CSO</option>
+				<option value="aiml">AIML</option>
+
+			</select>
+			<br/>
+			<br>
+
+			<label>Academic Year</label>
+			<select name="acc">
+				<option>--select---</option>
+				<option>2021</option>
+				<option>2022</option>
+				<option>2023</option>
+				<option>2024</option>
+				<option>2025</option>
+				<option>2026</option>
+				<option>2027</option>
+				
+
+			</select>
+			<br/>
+			<br>
+
+			<button type="reset">clear</button>
+			<button>submit</button>
+			<br/>
+</body>
+</html>

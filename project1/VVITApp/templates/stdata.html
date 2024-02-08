@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>student data</title>
+	<style>
+		body{
+			background-color: #8ACDD7;
+		}
+		h1{
+			color: #720455;
+		}
+		h4{
+			color:#3B3486;
+		}
+		span{
+			color:#7D0A0A;
+		}
+		div{
+			border:1px solid black;
+			margin-left: 35%;
+			margin-right: 35%;
+			margin-top: 10%;
+		}
+
+
+	</style>
+	 <script type="text/javascript" src="{% static 'scripts/script.js' %}">
+</script> 
+</head>
+
+
+<center>
+<body>
+	<h1>Student Data</h1>
+	<div>
+	<h4>Student Name:<span>{{n}}</span></h4>
+	<h4>Student rollnumber:<span>{{r}}</span></h4>
+	<h4>Student branch:<span>{{b}}</span></h4>
+	<h4>Student Accademic year:<span>{% if a == "2024"%}
+								III
+								{% elif a == "2023"%}
+										II
+								{% else %}
+										I
+								{% endif %}</span></h4>
+</div>
+</body>
+
+</center>
+
+</html>
