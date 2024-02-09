@@ -1,5 +1,8 @@
 from django.shortcuts import render,redirect
-from .models import Student
+from .models import Student,Employee
+from .forms import EmForm
+from django.contrib import messages
+
 # Create your views here.
 
 def home(request):
@@ -33,3 +36,35 @@ def sdele(request,m):
 		h.delete()
 		return redirect('/st')
 	return render(request,'delete.html',{'y':h})
+
+def employee(request):
+	u=Employee.objects.all()
+	if request.method=="POST":
+		q=EmForm(request.POST)
+		if q.is_valid():
+			q.save()
+			messages.success(request,"employee Created Successfully!!")
+			return redirect('/em')
+	q=EmForm()
+	return render(request,'empy.html',{'d':q,'r':u})
+
+def empup(req,d):
+	a=Employee.objects.get(id=d)
+	if req.method=="POST":
+		n=EmForm(req.POST,instance=a)
+		if n.is_valid():
+			a.save()
+			messages.info(req,"employee updated Successfully!!")
+			return redirect('/em')
+	n=EmForm(instance=a)
+	return render(req,'emupdate.html',{'k':n})
+
+
+def dels(req,j):
+	j=Employee.objects.get(id=j)
+	if req.method=="POST":
+		j.delete()
+		messages.warning(req,"employee Deleted Successfully!!")
+		return redirect('/em')
+	return render(req,'dell.html',{'b':j})
+
