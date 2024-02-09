@@ -6,4 +6,7 @@ urlpatterns=[
 	path('st/',views.student,name="std"),
 	path('ups/<int:k>/',views.stdup,name="stpd"),
 	path('sdel/<int:m>/',views.sdele,name="sdele"),
+	path('em/',views.employee,name="emp"),
+	path('up/<int:d>/',views.empup,name="eu"),
+	path('del/<int:j>/',views.dels,name="rdel"),
 ]

@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
+
 <div class="container mt-4">
-	<div class="card col-md-5 mx-auto shadow border border-danger">
+	<div class="card col-md-5 mx-auto shadow border border-outline-success">
 		<div class="card-body">
-			<h3>Are you sure Want to delete{{y}}</h3>
-			<form method="post"> {% csrf_token %}
-			<form>
+			<h3>Delete Employee</h3>
+			<form method="post">
+				{% csrf_token %}
+				<h4>Are you sure want to delete?</h4>
+				<h5>Id:{{b.eid}}</h5>
+				<h5>Name:{{b.ename}}</h5>
 				<div class="row">
 					<div class="col">
-						<a href="" class="form-control btn btn-danger">No</a>
+						<a href="{% url 'emp' %}" class="form-control btn btn-danger">No</a>
 					</div>
 					<div class="col">
 						<input type="submit" name="" value="Yes Confirm" class="form-control btn btn-success">
